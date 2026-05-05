@@ -10,5 +10,7 @@ const sendEmail = async (to, otp) => {
     html: `<p>Your OTP is <b>${otp}</b></p>`
   });
 };
+console.log("RESEND KEY EXISTS:", !!process.env.RESEND_API_KEY);
+console.log("Sending email to:", to);
 
 module.exports = sendEmail;
