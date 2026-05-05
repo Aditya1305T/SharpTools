@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const pool = require('../config/db');
-const { sendOtpEmail } = require('../utils/mailer');
+const { sendEmail } = require('../utils/mailer');
 
 function makeInitials(name) {
   return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
@@ -40,7 +40,7 @@ async function register(req, res) {
 
     // send OTP email (uses env-based SMTP credentials)
     try {
-      await sendOtpEmail(email, otp);
+      await sendEmail(email, otp);
     } catch (mailErr) {
       console.error('Failed to send OTP email:', mailErr);
       return res.status(500).json({ error: 'Failed to send OTP email' });
