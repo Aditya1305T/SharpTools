@@ -81,11 +81,11 @@ export default function LoginPage() {
             </button>
           </div>
 
-          <div style={{ marginTop: 20, padding: '14px 16px', background: 'var(--surface)', borderRadius: 8, fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.6 }}>
+          {/* <div style={{ marginTop: 20, padding: '14px 16px', background: 'var(--surface)', borderRadius: 8, fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.6 }}>
             <strong style={{ color: 'var(--text-secondary)' }}>Demo accounts (password: password):</strong><br />
             Admin: admin@cutpro.com<br />
             Customer: j.whitfield@acmemfg.com
-          </div>
+          </div> */}
         </div>
       </div>
 

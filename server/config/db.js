@@ -1,26 +1,3 @@
-// const { Pool } = require('pg');
-// require('dotenv').config();
-
-// const password = (process.env.DB_PASSWORD || '').replace(/#/g, '%23');
-// const connectionString = `postgresql://${process.env.DB_USER || 'postgres'}:${password}@${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || 5432}/${process.env.DB_NAME || 'cutpro'}`;
-
-// const pool = new Pool({
-//   connectionString,
-// });
-
-// pool.on('connect', () => {
-//   if (process.env.NODE_ENV !== 'production') {
-//     console.log('✓ PostgreSQL connected');
-//   }
-// });
-
-// pool.on('error', (err) => {
-//   console.error('PostgreSQL pool error:', err);
-//   process.exit(-1);
-// });
-
-// module.exports = pool;
-
 
 const { Pool } = require('pg');
 require('dotenv').config();
