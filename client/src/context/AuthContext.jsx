@@ -30,7 +30,13 @@ export function AuthProvider({ children }) {
   }
 
   async function register(name, email, password, company) {
-    const { token, user } = await authService.register({ name, email, password, company });
+    // server now sends an OTP and responds 202. Return server response so UI can show OTP screen.
+    const res = await authService.register({ name, email, password, company });
+    return res;
+  }
+
+  async function verifyOtp(email, otp) {
+    const { token, user } = await authService.verifyOtp({ email, otp });
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
     setUser(user);
@@ -44,7 +50,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout, loading }}>
+    <AuthContext.Provider value={{ user, login, register, verifyOtp, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

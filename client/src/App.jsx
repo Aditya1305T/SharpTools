@@ -6,6 +6,7 @@ import Topbar from './components/Topbar';
 import Avatar from './components/Avatar';
 import ProtectedRoute from './components/ProtectedRoute';
 import LoginPage from './pages/LoginPage';
+import OtpVerifyPage from './pages/OtpVerifyPage';
 import ProductCatalog from './pages/ProductCatalog';
 import CartPage from './pages/CartPage';
 import CustomOrderPage from './pages/CustomOrderPage';
@@ -19,7 +20,7 @@ function AdminBar() {
   return (
     <div style={{ background: 'var(--white)', borderBottom: '1px solid var(--border)', padding: '10px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
       <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 20, letterSpacing: 1 }}>
-        CUT<span style={{ color: 'var(--brand)' }}>PRO</span>{' '}
+        Sharp<span style={{ color: 'var(--brand)' }}>Tools</span>{' '}
         <span style={{ fontWeight: 400, fontSize: 12, color: 'var(--text-muted)', letterSpacing: 3 }}>ADMIN</span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -43,6 +44,7 @@ function AppShell() {
       {isAdminDash && <AdminBar />}
       <Routes>
         <Route path="/login"     element={<LoginPage />} />
+        <Route path="/verify-otp" element={<OtpVerifyPage />} />
         <Route path="/catalog"   element={<ProtectedRoute><ProductCatalog /></ProtectedRoute>} />
         <Route path="/cart"      element={<ProtectedRoute><CartPage /></ProtectedRoute>} />
         <Route path="/custom"    element={<ProtectedRoute>{user?.role === 'admin' ? <Navigate to="/dashboard" replace /> : <CustomOrderPage />}</ProtectedRoute>} />

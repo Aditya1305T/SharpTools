@@ -129,7 +129,7 @@ function ProductCard({ product: p, isAdmin, onClick, onAddToCart, onEdit, onDele
         </div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div className="product-price">{formatPrice(p.price)}</div>
-          <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>★ {p.rating}</div>
+          {/* <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>★ {p.rating}</div> */}
         </div>
         <div style={{ marginTop: 10, display: 'flex', gap: 6, alignItems: 'center' }}>
           <button className="btn btn-primary btn-sm" style={{ flex: 1, justifyContent: 'center' }} onClick={onAddToCart}>Add to Cart</button>
@@ -178,13 +178,13 @@ function ProductDetailModal({ product: p, onClose }) {
             ))}
           </div>
           <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 16 }}>{p.description}</p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+          {/* <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
             <span style={{ color: '#F5A623', fontSize: 14 }}>{'★'.repeat(Math.floor(p.rating))}</span>
             <span style={{ fontSize: 13, color: 'var(--text-muted)' }}>{p.rating} ({p.reviews} reviews)</span>
-          </div>
-          <div style={{ fontSize: 13, color: p.stock > 20 ? 'var(--success)' : 'var(--warning)' }}>
+          </div> */}
+          {/* <div style={{ fontSize: 13, color: p.stock > 20 ? 'var(--success)' : 'var(--warning)' }}>
             {p.stock > 20 ? '✓ In Stock' : `⚠ Only ${p.stock} left`} — {p.stock} units
-          </div>
+          </div> */}
           <div style={{ marginTop: 18, display: 'flex', alignItems: 'center', gap: 12 }}>
             <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 32, color: 'var(--brand)' }}>{formatPrice(p.price)}</div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>

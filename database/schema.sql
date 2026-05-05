@@ -15,6 +15,19 @@ CREATE TABLE IF NOT EXISTS users (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+-- ─── PENDING REGISTRATIONS (OTP) ─────────────────────────
+CREATE TABLE IF NOT EXISTS pending_registrations (
+  id         SERIAL PRIMARY KEY,
+  name       VARCHAR(150) NOT NULL,
+  email      VARCHAR(255) UNIQUE NOT NULL,
+  password   VARCHAR(255) NOT NULL,
+  otp_hash   VARCHAR(255) NOT NULL,
+  company    VARCHAR(150),
+  initials   VARCHAR(4),
+  expires_at TIMESTAMPTZ NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- ─── PRODUCTS ────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS products (
   id          SERIAL PRIMARY KEY,

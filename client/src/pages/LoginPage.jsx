@@ -20,11 +20,13 @@ export default function LoginPage() {
       if (mode === 'login') {
         const user = await login(form.email, form.password);
         addToast(`Welcome back, ${user.name.split(' ')[0]}!`);
+        navigate('/catalog');
       } else {
-        const user = await register(form.name, form.email, form.password, form.company);
-        addToast(`Account created! Welcome, ${user.name.split(' ')[0]}!`);
+        const res = await register(form.name, form.email, form.password, form.company);
+        // server sends OTP; navigate to OTP entry page
+        addToast(res.message || 'OTP sent to your email');
+        navigate('/verify-otp', { state: { email: form.email } });
       }
-      navigate('/catalog');
     } catch (err) {
       addToast(err.response?.data?.error || 'Authentication failed', 'warning');
     } finally {

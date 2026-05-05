@@ -120,6 +120,7 @@ export default function CartPage() {
     <div className="page-enter" style={{ padding: '28px 32px', maxWidth: 960, margin: '0 auto' }}>
       <h1 className="section-title" style={{ marginBottom: 24 }}>{stepLabels[step]}</h1>
 
+
       {/* Stepper */}
       <div style={{ marginBottom: 28 }}>
         <div className="stepper">
@@ -162,16 +163,16 @@ export default function CartPage() {
         )
       )}
 
-      {/* Step 1: Shipping */}
-      {step === 1 && (
+      {/* St ep 1: Shipping */}
+      {/* {step === 1 && (
         <div style={{ maxWidth: 520 }}>
           <div className="card" style={{ padding: '24px 28px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-              <div><label className="input-label">FULL NAME</label><input className="input-field" value={shipping.name} onChange={e => setShipping({ ...shipping, name: e.target.value })} placeholder="John Doe" /></div>
-              <div><label className="input-label">COMPANY ADDRESS</label><input className="input-field" value={shipping.address} onChange={e => setShipping({ ...shipping, address: e.target.value })} placeholder="123 Industrial Area" /></div>
+              <div><label className="input-label">FULL NAME</label><input className="input-field" value={shipping.name} onChange={e => setShipping({ ...shipping, name: e.target.value })} placeholder="John Doe" required /></div>
+              <div><label className="input-label">COMPANY ADDRESS</label><input className="input-field" value={shipping.address} onChange={e => setShipping({ ...shipping, address: e.target.value })} placeholder="123 Industrial Area" required /></div>
               <div className="grid-2">
-                <div><label className="input-label">CITY</label><input className="input-field" value={shipping.city} onChange={e => setShipping({ ...shipping, city: e.target.value })} placeholder="Delhi" /></div>
-                <div><label className="input-label">ZIP CODE</label><input className="input-field" value={shipping.zip} onChange={e => setShipping({ ...shipping, zip: e.target.value })} placeholder="110067" /></div>
+                <div><label className="input-label">CITY</label><input className="input-field" value={shipping.city} onChange={e => setShipping({ ...shipping, city: e.target.value })} placeholder="Delhi" required/></div>
+                <div><label className="input-label">ZIP CODE</label><input className="input-field" value={shipping.zip} onChange={e => setShipping({ ...shipping, zip: e.target.value })} placeholder="110067" required/></div>
               </div>
               <div>
                 <label className="input-label">COUNTRY</label>
@@ -190,7 +191,55 @@ export default function CartPage() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
+
+      {step === 1 && (
+      <form
+        style={{ maxWidth: 520 }}
+        onSubmit={(e) => {
+          e.preventDefault();
+          setStep(2);
+        }}
+      >
+        <div className="card" style={{ padding: '24px 28px' }}>
+          <div><label className="input-label">FULL NAME</label><input className="input-field" value={shipping.name} onChange={e => setShipping({ ...shipping, name: e.target.value })} placeholder="John Doe" required /></div>
+              <div><label className="input-label">COMPANY ADDRESS</label><input className="input-field" value={shipping.address} onChange={e => setShipping({ ...shipping, address: e.target.value })} placeholder="123 Industrial Area" required /></div>
+              <div className="grid-2">
+                <div><label className="input-label">CITY</label><input className="input-field" value={shipping.city} onChange={e => setShipping({ ...shipping, city: e.target.value })} placeholder="Delhi" required/></div>
+                <div><label className="input-label">ZIP CODE</label><input className="input-field" value={shipping.zip} onChange={e => setShipping({ ...shipping, zip: e.target.value })} placeholder="110067" required/></div>
+              </div>
+              <div>
+                <label className="input-label">COUNTRY</label>
+                <select className="input-field" value={shipping.country} onChange={e => setShipping({ ...shipping, country: e.target.value })}>
+                  <option value="IN">India</option>
+                  <option value="US">United States</option>
+                  <option value="CA">Canada</option>
+                  <option value="UK">United Kingdom</option>
+                  <option value="DE">Germany</option>
+                </select>
+              </div>
+          
+          <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
+            <button
+              type="button"
+              className="btn btn-outline"
+              onClick={() => setStep(0)}
+            >
+              ← Back
+            </button>
+
+            <button
+              type="submit"
+              className="btn btn-primary"
+              style={{ flex: 1, justifyContent: 'center' }}
+            >
+              Review Order →
+            </button>
+          </div>
+        </div>
+      </form>
+    )}
+
 
       {/* Step 2: Review */}
       {step === 2 && (
