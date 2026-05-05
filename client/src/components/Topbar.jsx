@@ -27,7 +27,7 @@ export default function Topbar() {
           <Link to="/catalog"   className={isActive('/catalog')}>Catalog</Link>
           {user?.role !== 'admin' && <Link to="/custom"    className={isActive('/custom')}>Custom Orders</Link>}
           <Link to="/dashboard" className={isActive('/dashboard')}>Dashboard</Link>
-          <Link to="#"  className={isActive('/messages')}>Messages</Link>
+          {/* <Link to="#"  className={isActive('/messages')}>Messages</Link> */}
         </nav>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>

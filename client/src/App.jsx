@@ -49,7 +49,7 @@ function AppShell() {
         <Route path="/cart"      element={<ProtectedRoute><CartPage /></ProtectedRoute>} />
         <Route path="/custom"    element={<ProtectedRoute>{user?.role === 'admin' ? <Navigate to="/dashboard" replace /> : <CustomOrderPage />}</ProtectedRoute>} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-        <Route path="/messages"  element={<ProtectedRoute><MessagesPage /></ProtectedRoute>} />
+        {/* <Route path="/messages"  element={<ProtectedRoute><MessagesPage /></ProtectedRoute>} /> */}
         <Route path="*"          element={<Navigate to="/catalog" replace />} />
       </Routes>
     </>

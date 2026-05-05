@@ -168,7 +168,7 @@ function AdminDashboard() {
           ))}
           <div className="sidebar-section-label">QUICK ACTIONS</div>
           <div className="nav-item" onClick={() => navigate('/catalog')}><span className="nav-item-icon">🛍️</span>Manage Products</div>
-          <div className="nav-item" onClick={() => navigate('/messages')}><span className="nav-item-icon">💬</span>Messages</div>
+          {/* <div className="nav-item" onClick={() => navigate('/messages')}><span className="nav-item-icon">💬</span>Messages</div> */}
         </div>
         <div style={{ padding: '16px 20px', borderTop: '1px solid var(--steel-light)' }}>
           <div style={{ fontSize: 11, color: 'var(--chrome)', letterSpacing: 1, fontFamily: 'var(--font-display)' }}>SYSTEM STATUS</div>
